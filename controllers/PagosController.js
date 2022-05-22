@@ -13,11 +13,11 @@ export const RegisterPayment = async (req, res) => {
   try {
     const pago = await PagosModel.create(req.body);
     res.json({
-      message: "Usuario created successfully",
+      message: "Pago realizado con exito",
       pago,
     });
   } catch (error) {
-    res.json({ message: error.message });
+    res.json({ message: "Error procesando el pago", error });
   }
 };
 
