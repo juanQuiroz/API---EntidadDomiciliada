@@ -4,6 +4,7 @@ import db from "./database/db.js";
 
 import ClientesRoutes from "./routes/Clientes.routes.js";
 import RequerimientosPagosRoutes from "./routes/RequerimientosPagos.routes.js";
+import PagosRoutes from "./routes/Pagos.routes.js";
 
 const app = express();
 
@@ -14,8 +15,9 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.use("/clientes", ClientesRoutes);
-app.use("/solicitudespagos", RequerimientosPagosRoutes);
+app.use("/api/v1/clientes", ClientesRoutes);
+app.use("/api/v1/solicitudespagos", RequerimientosPagosRoutes);
+app.use("/api/v1/pagos", PagosRoutes);
 
 try {
   await db.sync({ force: false }).then(() => {
